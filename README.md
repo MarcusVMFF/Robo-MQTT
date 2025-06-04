@@ -55,12 +55,8 @@ O objetivo principal é desenvolver um sistema embarcado capaz de:
         #define MQTT_USERNAME "SEU_USUARIO_MQTT" // Se necessário
         #define MQTT_PASSWORD "SUA_SENHA_MQTT"   // Se necessário
         ```
-2.  **Compilação e Upload:**
-    * Compile o projeto utilizando o ambiente de desenvolvimento para o Raspberry Pi Pico (CMake e Make).
-    * Coloque o Pico em modo bootloader (pressionando o botão BOOTSEL ao conectar, ou pressionando o `botaoB` definido no GPIO 6 se este firmware já estiver rodando).
-    * Arraste o arquivo `.uf2` gerado para o dispositivo RPI-RP2.
-3.  **Operação:**
-    * Após o Pico conectar-se ao Wi-Fi e ao broker MQTT, envie comandos para os seguintes tópicos MQTT (usando um cliente MQTT como MQTT Explorer, mosquitto_pub, etc.):
+2.  **Operação:**
+    * Após o Pico conectar-se ao Wi-Fi e ao broker MQTT, envie comandos para os seguintes tópicos MQTT (usando um cliente MQTT como MQTT Explorer, IoT MQTT Panel, etc.):
         * **`/led`**:
             * `On` ou `1`: Aciona a ré e liga o LED vermelho.
             * `Off` ou `0`: Para o motor (se em ré) e desliga o LED vermelho.
@@ -68,26 +64,22 @@ O objetivo principal é desenvolver um sistema embarcado capaz de:
             * `On` ou `1`: Aciona movimento para frente e liga o LED verde.
             * `Off` ou `0`: Para o motor (se em frente) e desliga o LED verde.
         * **`/print`**: Envia uma mensagem para ser impressa no console serial do Pico.
-        * **`/ping`**: Solicita ao Pico para publicar seu tempo de atividade.
-        * **`/exit`**: Desconecta o cliente MQTT do Pico.
     * Pressione o `botaoB` (GPIO 6) a qualquer momento para colocar o Pico em modo `reset_usb_boot`.
 
 ---
 
 
-
 ## 📊 **Funcionalidades Demonstradas**
 
-
-
-- Controle de Concorrência pelas Threads(Tasks)
-
-- Controle de Matriz de led 5x5
-
-- Controle do Display SSD1306
-
-- Controle de LED PWM
-
-- Controle do buzzer
-
-- Manipulação de botões e deboucing
+- **Controle de Motores DC:** Acionamento direto dos pinos de controle de dois motores para movimento.
+- **Comunicação Wi-Fi:** Utilização do módulo CYW43 do Pico W para conexão à rede.
+- **Cliente MQTT:**
+    - Conexão a um broker MQTT.
+    - Subscrição a múltiplos tópicos.
+    - Publicação de mensagens em tópicos.
+    - Implementação de "Last Will and Testament" para status online.
+    - Geração de um Client ID único baseado no ID da placa.
+- **Manipulação de GPIOs:**
+    - Controle de LEDs RGB para feedback visual.
+    - Leitura de botão físico.
+- **Interrupções:** Uso de interrupção de GPIO para o botão de reset para o modo bootloader.
