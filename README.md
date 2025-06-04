@@ -1,9 +1,8 @@
-# 📊 **﻿SemaforoInteligente-RTOS**
+#  🚗 **Controle Remoto de Carrinho MQTT com Pico W**
 
 
 
-Projeto individual para exercício do controle de Tasks com o Free-RTOS, utilização de LEDs PWM, Matriz 5x5, Display SSD1306,buzzer e rotinas de interrupções com deboucing para botões, utilizando a placa **BitDogLab** na linguagem **C**. Desenvolvido para a residência de **Sistemas Embarcados**, **TIC 37 - Embarcatech**.
-
+Projeto individual para demonstrar o controle remoto de um carrinho de dois motores utilizando a placa Raspberry Pi Pico W e a placa BitDogLab (ou componentes equivalentes). A comunicação é estabelecida via Wi-Fi, e os comandos são enviados e recebidos através do protocolo MQTT. Desenvolvido em linguagem C para a residência TIC 37 - Embarcatech
 
 
 ---
@@ -12,11 +11,13 @@ Projeto individual para exercício do controle de Tasks com o Free-RTOS, utiliza
 
 ## 🔎 **Objetivos**
 
-
-
-Um projeto que consiste na administração de threads(Tasks) com o Free-RTOS, LEDs, display e botões para formar um simulador de semáforo com 2 Modos: Noturno e Diurno, com métodos e processos diferentes, o modo Diurno altera em uma sequência de verde -> amarelo -> vermelho, cada um com um tempo e um simbolo diferente na matriz de LED e um barulho diferente no buzzer, além de uma luz correspondente nos LEDs PWM e um feedback visual pelo Display. O Modo Noturno faz com que apenas o LED amarelo pisque lentamente com espaço de 2 segundos entre os barulhos do buzzer, simbolizando um semáforo de madrugada.
-
-
+O objetivo principal é desenvolver um sistema embarcado capaz de:
+* Conectar o Raspberry Pi Pico W a uma rede Wi-Fi.
+* Estabelecer comunicação com um broker MQTT para receber comandos e enviar status.
+* Controlar remotamente os movimentos de um carrinho (frente, trás, parar) com base nas mensagens MQTT recebidas.
+* Fornecer feedback visual do estado do carrinho utilizando os LEDs RGB da placa BitDogLab.
+* Permitir o reset do microcontrolador para o modo bootloader através de um botão físico, facilitando a atualização do firmware.
+* Implementar funcionalidades básicas de um cliente MQTT, como subscrição a tópicos, publicação de mensagens e o uso de "Last Will and Testament" para indicar o status online.
 
 ---
 
