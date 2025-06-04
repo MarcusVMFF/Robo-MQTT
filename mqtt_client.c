@@ -7,13 +7,12 @@
 #include "lwip/altcp_tls.h"
 #include "pico/bootrom.h"
 
-#define WIFI_SSID "Elzita - X6"
-#define WIFI_PASSWORD "16051976"
-#define MQTT_SERVER "192.168.15.127"
-#define MQTT_USERNAME "Marcus"
-#define MQTT_PASSWORD "1234"
+#define WIFI_SSID "WIFI NOME"
+#define WIFI_PASSWORD "SENHA WIFI"
+#define MQTT_SERVER "IPHOST"
+#define MQTT_USERNAME "NOME HOST"
+#define MQTT_PASSWORD "SENHA HOST"
 
-#define LED_BLUE_PIN 12
 #define LED_GREEN_PIN 11
 #define LED_RED_PIN 13
 
